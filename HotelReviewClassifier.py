@@ -30,9 +30,28 @@ train_vector = vectorizer.fit_transform(train_X['reviewText'])
 test_vector = vectorizer.transform(test_X['reviewText'])
 print('processing ... ok')
 print('start training model')
+
 # LogisticRegression model for classification problems
 clr = LogisticRegression()
 clr.fit(train_vector, train_y.values.ravel())
 scores = clr.score(test_vector, test_y)  # accuracy
 print('training ...ok')
 print('accuracy: {}%'.format(scores * 100))
+
+# Predicting new reviews
+new_reviews = [
+    "This hotel is amazing! Great service and comfortable rooms.",
+    "Terrible experience. I wouldn't recommend this hotel to anyone."
+]
+
+# Vectorize the new reviews
+new_reviews_vector = vectorizer.transform(new_reviews)
+
+# Make predictions
+predictions = clr.predict(new_reviews_vector)
+
+# Display predictions
+for review, prediction in zip(new_reviews, predictions):
+    sentiment = "Positive" if prediction == 1 else "Negative"
+    print(f"Review: {review}")
+    print(f"Sentiment: {sentiment}\n")
