@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[15]:
-
-
 import pandas as pd
 import string
 from sklearn.model_selection import train_test_split
@@ -42,28 +36,3 @@ clr.fit(train_vector, train_y.values.ravel())
 scores = clr.score(test_vector, test_y)  # accuracy
 print('training ...ok')
 print('accuracy: {}%'.format(scores * 100))
-
-
-# In[1]:
-
-
-get_ipython().system('python Untitled7.py --dataset balanced_review.csv')
-
-
-# In[2]:
-
-
-get_ipython().system('python Untitled7.ipynb --dataset balanced_review.csv')
-
-
-# In[5]:
-
-
-get_ipython().system('python Untitled7.ipynb --dataset balanced_revieu.csv')
-
-
-# In[ ]:
-
-
-
-
